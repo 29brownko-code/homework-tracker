@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f4ed">
+  <title>Coursework | Homework tracker</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="wordmark" href="#main" aria-label="Coursework home">coursework<span>.</span></a>
+      <p class="local-note"><span class="status-dot" aria-hidden="true"></span> Saved on this device</p>
+    </header>
+    <main id="main">
+      <section class="intro" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">YOUR STUDY DESK</p>
+          <h1 id="page-title">Make room<br>for the <em>next thing.</em></h1>
+          <p class="intro-copy">A clear view of what’s due, and what you’ve already finished.</p>
+        </div>
+        <div class="date-stamp" aria-label="Today's date">
+          <span class="date-label">TODAY</span>
+          <span id="today-date" class="date-value"></span>
+        </div>
+      </section>
+      <section class="workspace" aria-label="Coursework tracker">
+        <section class="entry-panel" aria-labelledby="form-title">
+          <div class="section-heading"><span class="section-index">01</span><h2 id="form-title">Add to your list</h2></div>
+          <form id="assignment-form">
+            <label class="field-label" for="title">What needs doing?</label>
+            <input id="title" name="title" type="text" maxlength="100" placeholder="e.g. Biology lab report" required>
+            <div class="field-row">
+              <div class="field-group">
+                <label class="field-label" for="kind">This is a</label>
+                <select id="kind" name="kind"><option value="Assignment">Assignment</option><option value="Project">Project</option><option value="Upcoming Quizes">Upcoming Quizes</option></select>
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="due-date">Due date</label>
+                <input id="due-date" name="dueDate" type="date" required>
+              </div>
+            </div>
+            <label class="field-label" for="notes">Notes <span class="optional">OPTIONAL</span></label>
+            <textarea id="notes" name="notes" rows="2" maxlength="240" placeholder="A detail to remember…"></textarea>
+            <button class="add-button" type="submit"><span aria-hidden="true">+</span> Add coursework</button>
+            <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+        <section class="list-panel" aria-labelledby="list-title">
+          <div class="list-topline">
+            <div class="section-heading"><span class="section-index">02</span><h2 id="list-title">Your coursework</h2></div>
+            <p class="task-count"><span id="open-count">0</span> to do</p>
+          </div>
+          <div class="filter-row" role="group" aria-label="Filter coursework">
+            <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">All <span id="all-count">0</span></button>
+            <button class="filter-button" type="button" data-filter="upcoming" aria-pressed="false">To do</button>
+            <button class="filter-button" type="button" data-filter="completed" aria-pressed="false">Done</button>
+          </div>
+          <div id="assignment-list" class="assignment-list" aria-live="polite"></div>
+        </section>
+      </section>
+    </main>
+    <footer class="footer"><span>COURSEWORK TRACKER</span><span>Your list stays in this browser.</span></footer>
+  </div>
+</body>
+</html>
